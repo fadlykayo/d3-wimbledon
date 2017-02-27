@@ -47,9 +47,15 @@ let redraw = (data) => {
       return xScale(index)
     })
     .attr('y', (d) => {
-      return yScale(d)
+      return height
     })
     .attr('width', (width / data.length) - 2)
+    .transition()
+    .duration(1500)
+    .delay(500)
+    .attr('y', (d) => {
+      return yScale(d)
+    })
     .attr('height', (d) => {
       return height - yScale(d)
     })
